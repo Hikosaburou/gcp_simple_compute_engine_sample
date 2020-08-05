@@ -1,10 +1,10 @@
 resource "google_compute_network" "cloudiap_network" {
-  name                    = "${var.project-code}-network"
+  name                    = "${var.project-prefix}-network"
   auto_create_subnetworks = false
 }
 
 resource "google_compute_subnetwork" "cloudiap_subnetwork" {
-  name          = "${var.project-code}-subnetwork"
+  name          = "${var.project-prefix}-subnetwork"
   ip_cidr_range = "10.8.0.0/16"
   region        = var.default-region
   network       = google_compute_network.cloudiap_network.id

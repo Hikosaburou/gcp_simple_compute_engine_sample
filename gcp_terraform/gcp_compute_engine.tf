@@ -1,5 +1,5 @@
 resource "google_compute_instance" "default" {
-  name         = "${var.project-code}-vm"
+  name         = "${var.project-prefix}-vm"
   machine_type = var.instance-type
   zone         = var.default-zone
 

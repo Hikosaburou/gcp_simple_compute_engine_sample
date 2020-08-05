@@ -3,9 +3,11 @@ variable "project-name" {
   type        = string
 }
 
-variable "project-code" {
-  description = "Project Code Name."
+variable "project-prefix" {
+  description = "Prefix code."
   type        = string
+
+  default = "simple-gce"
 }
 
 variable "default-region" {
