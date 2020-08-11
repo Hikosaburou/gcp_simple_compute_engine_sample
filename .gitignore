@@ -62,6 +62,8 @@ override.tf.json
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,terraform
 
+
+# Ignore GCP service account key
 .envrc
 gcp_terraform/backend.tf
 gcp_terraform/*.json

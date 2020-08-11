@@ -1,9 +1,9 @@
 resource "google_compute_instance" "default" {
-  name         = "${var.project-prefix}-vm"
-  machine_type = var.instance-type
-  zone         = var.default-zone
+  name         = "${var.project_prefix}-vm"
+  machine_type = var.instance_type
+  zone         = var.default_zone
 
-  tags = [var.tag-tunnel]
+  tags = [var.tag_tunnel]
 
   boot_disk {
     initialize_params {
