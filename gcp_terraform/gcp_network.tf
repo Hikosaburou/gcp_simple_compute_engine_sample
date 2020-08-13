@@ -10,6 +10,13 @@ resource "google_compute_subnetwork" "cloudiap_subnetwork" {
   network       = google_compute_network.cloudiap_network.id
 }
 
+resource "google_compute_route" "default_internet" {
+  name = "allow-egress-internet"
+  network = google_compute_network.cloudiap_network.name
+  dest_range   = "0.0.0.0/0"
+  next_hop_gateway = "default-internet-gateway"
+}
+
 resource "google_compute_firewall" "cloudiap" {
   name    = "allow-ingress-from-iap"
   network = google_compute_network.cloudiap_network.name
@@ -20,5 +27,6 @@ resource "google_compute_firewall" "cloudiap" {
   }
 
   source_ranges = ["35.235.240.0/20"]
-  source_tags   = [var.tag_tunnel]
+
+  target_tags   = [var.tag_tunnel]
 }
